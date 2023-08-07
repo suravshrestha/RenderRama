@@ -1,17 +1,13 @@
-import React, { useState } from "react";
+import Point from "../Point";
 
-interface Point {
-  x: number | string;
-  y: number | string;
+import React from "react";
+
+interface Props {
+  points: Point[];
+  setPoints: (points: Point[]) => void;
 }
 
-const PointsInputTable: React.FC = () => {
-  const [points, setPoints] = useState<Point[]>([
-    // Initial empty rows
-    { x: "", y: "" },
-    { x: "", y: "" },
-  ]);
-
+const PointsInputTable = ({ points, setPoints }: Props) => {
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
     index: number,
@@ -32,7 +28,7 @@ const PointsInputTable: React.FC = () => {
 
     // Update state
     const newPoints = points.slice();
-    newPoints[index][key] = value;
+    newPoints[index][key] = event.target.value;
     setPoints(newPoints);
   };
 

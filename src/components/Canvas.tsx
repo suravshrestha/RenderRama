@@ -1,16 +1,36 @@
-import React from "react";
+import Point from "../Point";
+
 import Sketch from "react-p5";
 import p5Types from "p5"; // for typechecking and intellisense
 
-const Canvas: React.FC = () => {
+interface Props {
+  points: Point[];
+}
+
+const Canvas = ({ points }: Props) => {
   // See annotations in JS for more information
   const setup = (p5: p5Types, canvasParentRef: Element) => {
-    p5.createCanvas(800, 500).parent(canvasParentRef);
+    p5.createCanvas(650, 500).parent(canvasParentRef);
   };
 
   const draw = (p5: p5Types) => {
     p5.background(220);
-    p5.triangle(0, 0, 400, 0, 0, 250)
+
+    // 2 points + 1 empty point
+    if (points.length >= 3) {
+      // Begin drawing the polygon
+      p5.beginShape();
+
+      // Loop through the points and add each vertex to the shape
+      points.forEach((point) => {
+        const x = parseInt(point.x);
+        const y = parseInt(point.y);
+        p5.vertex(x, y);
+      });
+
+      // Close the shape
+      p5.endShape(p5.CLOSE);
+    }
   };
 
   return <Sketch setup={setup} draw={draw} />;
