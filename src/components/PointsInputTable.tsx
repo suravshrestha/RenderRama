@@ -46,11 +46,11 @@ const PointsInputTable: React.FC = () => {
       <thead className="h-8">
         <tr>
           <th className="border border-slate-700" colSpan={2}>
-            <div className="flex items-center justify-center space-x-10">
+            <div className="flex items-center justify-center space-x-6">
               <span>Points</span>
               <button
                 type="button"
-                className="tracking-wider text-red-600 underline"
+                className="text-red-600 underline"
                 onClick={() =>
                   setPoints([
                     { x: "", y: "" },
