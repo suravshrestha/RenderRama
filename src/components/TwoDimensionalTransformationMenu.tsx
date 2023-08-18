@@ -14,7 +14,10 @@ interface Props {
   setTransformedPoints: React.Dispatch<React.SetStateAction<Point[]>>;
 }
 
-function TransformationMenu({ points, setTransformedPoints }: Props) {
+function TwoDimensionalTransformationMenu({
+  points,
+  setTransformedPoints,
+}: Props) {
   const [translateChecked, setTranslateChecked] = useState(false);
   const [translationVector, setTranslationVector] = useState<Point>({
     x: "",
@@ -177,7 +180,7 @@ function TransformationMenu({ points, setTransformedPoints }: Props) {
   };
 
   return (
-    <div className="p-4 text-lg">
+    <div>
       <Translation
         translationVector={translationVector}
         setTranslationVector={setTranslationVector}
@@ -224,4 +227,4 @@ function TransformationMenu({ points, setTransformedPoints }: Props) {
   );
 }
 
-export default TransformationMenu;
+export default TwoDimensionalTransformationMenu;
