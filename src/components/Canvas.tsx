@@ -1,4 +1,5 @@
 import Point from "../geometry/Point";
+import { CANVAS_WIDTH, CANVAS_HEIGHT } from "../../config";
 
 import Sketch from "react-p5";
 import p5Types from "p5"; // for typechecking and intellisense
@@ -10,7 +11,7 @@ interface Props {
 const Canvas = ({ points }: Props) => {
   // See annotations in JS for more information
   const setup = (p5: p5Types, canvasParentRef: Element) => {
-    p5.createCanvas(750, 500).parent(canvasParentRef);
+    p5.createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT).parent(canvasParentRef);
   };
 
   const draw = (p5: p5Types) => {
