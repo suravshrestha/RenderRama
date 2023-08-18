@@ -1,7 +1,8 @@
 import Point from "./geometry/Point";
 
 import PointsInputTable from "./components/PointsInputTable";
-import Canvas from "./components/Canvas";
+import Canvas2D from "./components/Canvas2D";
+import Canvas3D from "./components/Canvas3D";
 import TwoDimensionalTransformationMenu from "./components/TwoDimensionalTransformationMenu";
 
 import { useState } from "react";
@@ -22,20 +23,26 @@ const App: React.FC = () => {
   const [transformedPoints, setTransformedPoints] = useState<Point[]>([]);
 
   return (
-    <div className="m-10 mx-28">
+    <div className="m-10 mx-28 justify-center">
       <h1 className="sticky top-5 text-3xl font-bold underline text-center">
         RenderRama
       </h1>
       <div className="grid grid-flow-col gap-4 mt-5">
-        <div>
-          <PointsInputTable
-            points={points}
-            setPoints={setPoints}
-            setTransformedPoints={setTransformedPoints}
-          />
-        </div>
+        {activeTab === "2d" && (
+          <div>
+            <PointsInputTable
+              points={points}
+              setPoints={setPoints}
+              setTransformedPoints={setTransformedPoints}
+            />
+          </div>
+        )}
         <div className="col-span-5">
-          <Canvas points={points} transformedPoints={transformedPoints} />
+          {activeTab === "3d" ? (
+            <Canvas3D />
+          ) : (
+            <Canvas2D points={points} transformedPoints={transformedPoints} />
+          )}
         </div>
         <div className="bg-sky-100 col-span-4">
           <div className="mt-5">

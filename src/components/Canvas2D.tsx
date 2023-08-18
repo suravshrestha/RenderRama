@@ -9,7 +9,7 @@ interface Props {
   transformedPoints: Point[];
 }
 
-const Canvas = ({ points, transformedPoints }: Props) => {
+const Canvas2D = ({ points, transformedPoints }: Props) => {
   // See annotations in JS for more information
   const setup = (p5: p5Types, canvasParentRef: Element) => {
     p5.createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT).parent(canvasParentRef);
@@ -62,4 +62,4 @@ const Canvas = ({ points, transformedPoints }: Props) => {
   );
 };
 
-export default Canvas;
+export default Canvas2D;
