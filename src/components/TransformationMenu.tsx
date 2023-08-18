@@ -2,6 +2,8 @@ import Translation from "./transformations/Translation";
 import Rotation from "./transformations/Rotation";
 import Scaling from "./transformations/Scaling";
 import Reflection from "./transformations/Reflection";
+import Shearing from "./transformations/Shearing";
+
 import Point from "../geometry/Point";
 
 import React, { useState } from "react";
@@ -31,6 +33,13 @@ function TransformationMenu({ points, setTransformedPoints }: Props) {
 
   const [reflectChecked, setReflectChecked] = useState(false);
   const [reflectionAbout, setReflectionAbout] = useState("x-axis");
+
+  const [shearingVector, setShearingVector] = useState<Point>({
+    x: "",
+    y: "",
+  });
+  const [shearChecked, setShearChecked] = useState(false);
+  const [shearDirection, setShearDirection] = useState("x-axis");
 
   const handleTransformClick = () => {
     // Initialize the temporary points array
@@ -140,6 +149,29 @@ function TransformationMenu({ points, setTransformedPoints }: Props) {
       });
     }
 
+    if (shearChecked) {
+      const shearX = parseFloat(shearingVector.x);
+      const shearY = parseFloat(shearingVector.y);
+
+      tempPoints = tempPoints.map((point) => {
+        const x = parseInt(point.x);
+        const y = parseInt(point.y);
+
+        let shearedX = x,
+          shearedY = y;
+        if (shearDirection === "x-axis") {
+          shearedX = x + shearX * y;
+        } else if (shearDirection === "y-axis") {
+          shearedY = y + shearY * x;
+        } else {
+          shearedX = x + shearX * y;
+          shearedY = y + shearY * x;
+        }
+
+        return { x: shearedX.toString(), y: shearedY.toString() };
+      });
+    }
+
     // Update the transformed points
     setTransformedPoints(tempPoints);
   };
@@ -170,6 +202,14 @@ function TransformationMenu({ points, setTransformedPoints }: Props) {
         reflectionAbout={reflectionAbout}
         setReflectionAbout={setReflectionAbout}
         setReflectChecked={setReflectChecked}
+      />
+
+      <Shearing
+        shearingVector={shearingVector}
+        setShearingVector={setShearingVector}
+        shearDirection={shearDirection}
+        setShearDirection={setShearDirection}
+        setShearChecked={setShearChecked}
       />
 
       <div className="flex justify-end">
