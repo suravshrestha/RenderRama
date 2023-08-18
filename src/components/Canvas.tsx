@@ -10,7 +10,7 @@ interface Props {
 const Canvas = ({ points }: Props) => {
   // See annotations in JS for more information
   const setup = (p5: p5Types, canvasParentRef: Element) => {
-    p5.createCanvas(650, 500).parent(canvasParentRef);
+    p5.createCanvas(750, 500).parent(canvasParentRef);
   };
 
   const draw = (p5: p5Types) => {

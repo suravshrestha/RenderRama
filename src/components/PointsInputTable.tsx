@@ -22,7 +22,7 @@ const PointsInputTable = ({ points, setPoints }: Props) => {
 
     // Handle point range
     const value = parseInt(event.target.value);
-    if (value > 500 || value < 0) {
+    if (value > 750 || value < 0) {
       return;
     }
 
