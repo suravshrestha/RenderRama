@@ -1,5 +1,5 @@
 import Point from "../geometry/Point";
-import { CANVAS_WIDTH } from "../../config";
+import { CANVAS_WIDTH, CANVAS_HEIGHT } from "../../config";
 
 import React from "react";
 
@@ -28,7 +28,10 @@ const PointsInputTable = ({
 
     // Handle point range
     const value = parseInt(event.target.value);
-    if (value > CANVAS_WIDTH || value < 0) {
+    if (
+      (key === "x" && Math.abs(value) > CANVAS_WIDTH / 2) ||
+      (key === "y" && Math.abs(value) > CANVAS_HEIGHT / 2)
+    ) {
       return;
     }
 

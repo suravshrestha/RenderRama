@@ -3,6 +3,7 @@ import Rotation from "./transformations/Rotation";
 import Point from "../geometry/Point";
 
 import React, { useState } from "react";
+import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../../config";
 
 interface Props {
   points: Point[];
@@ -29,11 +30,28 @@ function TransformationMenu({ points, setTransformedPoints }: Props) {
       const translateX = parseInt(translationVector.x);
       const translateY = parseInt(translationVector.y);
 
+      const centerX = CANVAS_WIDTH / 2;
+      const centerY = CANVAS_HEIGHT / 2;
+
       // Apply translation to each point
-      tempPoints = tempPoints.map((point) => ({
-        x: (parseInt(point.x) + translateX).toString(),
-        y: (parseInt(point.y) + translateY).toString(),
-      }));
+      tempPoints = tempPoints.map((point) => {
+        // Convert point coordinates to center-origin coordinates
+        const x = parseInt(point.x) - centerX;
+        const y = centerY - parseInt(point.y); // Invert y-coordinate
+
+        // Apply translation to the center-origin coordinates
+        const translatedX = x + translateX;
+        const translatedY = y + translateY;
+
+        // Convert back to canvas coordinates
+        const canvasX = translatedX + centerX;
+        const canvasY = centerY - translatedY; // Invert y-coordinate
+
+        return {
+          x: canvasX.toString(),
+          y: canvasY.toString(),
+        };
+      });
     }
 
     if (rotateChecked) {

@@ -18,41 +18,39 @@ const Canvas = ({ points, transformedPoints }: Props) => {
   const draw = (p5: p5Types) => {
     p5.background(220);
 
-    // 2 points + 1 empty point
-    if (points.length >= 3) {
-      // Begin drawing the polygon
-      p5.beginShape();
+    const centerX = p5.width / 2; // Center X coordinate of the canvas
+    const centerY = p5.height / 2; // Center Y coordinate of the canvas
 
-      // Loop through the points and add each vertex to the shape
+    // Draw the x and y axes
+    p5.stroke(0); // Black color
+    p5.line(centerX, 0, centerX, p5.height); // Vertical line (y-axis)
+    p5.line(0, centerY, p5.width, centerY); // Horizontal line (x-axis)
+
+    // Draw the original polygon
+    if (points.length >= 3) {
+      p5.beginShape();
+      p5.stroke(0); // Black color
+
       points.forEach((point) => {
-        const x = parseInt(point.x);
-        const y = parseInt(point.y);
+        const x = centerX + parseInt(point.x);
+        const y = centerY - parseInt(point.y); // Invert y-coordinate to match p5.js coordinate system
         p5.vertex(x, y);
       });
 
-      // Set the stroke color for the original polygon outline
-      p5.stroke(0, 0, 0); // Black color
-
-      // Close the shape
       p5.endShape(p5.CLOSE);
     }
 
     // Draw the transformed polygon
     if (transformedPoints.length >= 3) {
-      // Begin drawing the transformed polygon
       p5.beginShape();
-
-      // Set the stroke color for the transformed polygon outline
       p5.stroke(0, 0, 255); // Blue color
 
-      // Loop through the transformed points and add each vertex to the transformed shape
       transformedPoints.forEach((transformedPoint) => {
-        const x = parseInt(transformedPoint.x);
-        const y = parseInt(transformedPoint.y);
+        const x = centerX + parseInt(transformedPoint.x);
+        const y = centerY - parseInt(transformedPoint.y); // Invert y-coordinate
         p5.vertex(x, y);
       });
 
-      // End the shape for the transformed polygon
       p5.endShape(p5.CLOSE);
     }
   };
