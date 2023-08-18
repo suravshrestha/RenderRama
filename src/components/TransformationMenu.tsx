@@ -58,26 +58,18 @@ function TransformationMenu({ points, setTransformedPoints }: Props) {
       // Convert the rotation angle to radians
       const rotationAngleRad =
         ((parseInt(rotationAngle) * Math.PI) / 180) *
-        (rotationDirection === "anticlockwise" ? -1 : 1);
-
-      // Use the first point as the pivot point
-      const pivotX = parseInt(tempPoints[0].x);
-      const pivotY = parseInt(tempPoints[0].y);
+        (rotationDirection === "anticlockwise" ? 1 : -1);
 
       tempPoints = tempPoints.map((point) => {
         const x = parseInt(point.x);
         const y = parseInt(point.y);
 
-        // Calculate rotated coordinates around the pivot point
+        // Calculate rotated coordinates around the origin (center of the canvas)
         const rotatedX =
-          Math.cos(rotationAngleRad) * (x - pivotX) -
-          Math.sin(rotationAngleRad) * (y - pivotY) +
-          pivotX;
+          Math.cos(rotationAngleRad) * x - Math.sin(rotationAngleRad) * y;
 
         const rotatedY =
-          Math.sin(rotationAngleRad) * (x - pivotX) +
-          Math.cos(rotationAngleRad) * (y - pivotY) +
-          pivotY;
+          Math.sin(rotationAngleRad) * x + Math.cos(rotationAngleRad) * y;
 
         return { x: rotatedX.toString(), y: rotatedY.toString() };
       });
