@@ -3,7 +3,7 @@ import Point from "./geometry/Point";
 import PointsInputTable from "./components/PointsInputTable";
 import Canvas2D from "./components/Canvas2D";
 import Canvas3D from "./components/Canvas3D";
-import TwoDimensionalTransformationMenu from "./components/TwoDimensionalTransformationMenu";
+import TransformationMenu2D from "./components/TransformationMenu2D";
 
 import { useState } from "react";
 
@@ -75,7 +75,7 @@ const App: React.FC = () => {
             <div className="p-4 text-lg">
               {/* Tab content */}
               {activeTab === "2d" && (
-                <TwoDimensionalTransformationMenu
+                <TransformationMenu2D
                   points={points}
                   setTransformedPoints={setTransformedPoints}
                 />

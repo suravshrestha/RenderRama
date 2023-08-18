@@ -14,7 +14,7 @@ interface Props {
   setTransformedPoints: React.Dispatch<React.SetStateAction<Point[]>>;
 }
 
-function TwoDimensionalTransformationMenu({
+function TransformationMenu2D({
   points,
   setTransformedPoints,
 }: Props) {
@@ -227,4 +227,4 @@ function TwoDimensionalTransformationMenu({
   );
 }
 
-export default TwoDimensionalTransformationMenu;
+export default TransformationMenu2D;
