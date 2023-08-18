@@ -1,5 +1,7 @@
 import Translation from "./transformations/Translation";
 import Rotation from "./transformations/Rotation";
+import Scaling from "./transformations/Scaling";
+import Reflection from "./transformations/Reflection";
 import Point from "../geometry/Point";
 
 import React, { useState } from "react";
@@ -21,9 +23,20 @@ function TransformationMenu({ points, setTransformedPoints }: Props) {
   const [rotationAngle, setRotationAngle] = useState("");
   const [rotationDirection, setRotationDirection] = useState("clockwise");
 
+  const [scaleChecked, setScaleChecked] = useState(false);
+  const [scalingVector, setScalingVector] = useState<Point>({
+    x: "",
+    y: "",
+  });
+
+  const [reflectChecked, setReflectChecked] = useState(false);
+  const [reflectionAbout, setReflectionAbout] = useState("x-axis");
+
   const handleTransformClick = () => {
     // Initialize the temporary points array
-    let tempPoints: Point[] = [...points]; // Clone the original points
+    let tempPoints: Point[] = points.filter(
+      (point) => !isNaN(parseInt(point.x)) || !isNaN(parseInt(point.y))
+    );
 
     if (translateChecked) {
       // Convert the translationVector properties to integers
@@ -75,6 +88,58 @@ function TransformationMenu({ points, setTransformedPoints }: Props) {
       });
     }
 
+    if (scaleChecked) {
+      // Parse scaling factors
+      const scaleX = parseFloat(scalingVector.x);
+      const scaleY = parseFloat(scalingVector.y);
+
+      // Apply scaling to each point
+      tempPoints = tempPoints.map((point) => {
+        const x = parseInt(point.x);
+        const y = parseInt(point.y);
+
+        // Calculate the offset from the center of the canvas
+        const offsetX = x - CANVAS_WIDTH / 2;
+        const offsetY = y - CANVAS_HEIGHT / 2;
+
+        // Scale the offset
+        const scaledOffsetX = offsetX * scaleX;
+        const scaledOffsetY = offsetY * scaleY;
+
+        // Calculate the new scaled coordinates by adding the scaled offset to the center
+        const scaledX = CANVAS_WIDTH / 2 + scaledOffsetX;
+        const scaledY = CANVAS_HEIGHT / 2 + scaledOffsetY;
+
+        return { x: scaledX.toString(), y: scaledY.toString() };
+      });
+    }
+
+    if (reflectChecked) {
+      tempPoints = tempPoints.map((point) => {
+        const x = parseInt(point.x);
+        const y = parseInt(point.y);
+
+        // Calculate reflected coordinates based on the selected axis or line
+        let reflectedX = 0,
+          reflectedY = 0;
+        if (reflectionAbout === "x-axis") {
+          reflectedX = x;
+          reflectedY = -y;
+        } else if (reflectionAbout === "y-axis") {
+          reflectedX = -x;
+          reflectedY = y;
+        } else if (reflectionAbout === "y=x") {
+          reflectedX = y;
+          reflectedY = x;
+        } else if (reflectionAbout === "y=-x") {
+          reflectedX = -y;
+          reflectedY = -x;
+        }
+
+        return { x: reflectedX.toString(), y: reflectedY.toString() };
+      });
+    }
+
     // Update the transformed points
     setTransformedPoints(tempPoints);
   };
@@ -93,6 +158,18 @@ function TransformationMenu({ points, setTransformedPoints }: Props) {
         rotationDirection={rotationDirection}
         setRotationDirection={setRotationDirection}
         setRotateChecked={setRotateChecked}
+      />
+
+      <Scaling
+        scalingVector={scalingVector}
+        setScalingVector={setScalingVector}
+        setScaleChecked={setScaleChecked}
+      />
+
+      <Reflection
+        reflectionAbout={reflectionAbout}
+        setReflectionAbout={setReflectionAbout}
+        setReflectChecked={setReflectChecked}
       />
 
       <div className="flex justify-end">

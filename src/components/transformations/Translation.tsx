@@ -25,8 +25,8 @@ const Translation: React.FC<Props> = ({
     // Handle point range
     const value = parseInt(event.target.value);
     if (
-      (key === "x" && Math.abs(value) > CANVAS_WIDTH) ||
-      (key === "y" && Math.abs(value) > CANVAS_HEIGHT)
+      (key === "x" && Math.abs(value) > CANVAS_WIDTH / 2) ||
+      (key === "y" && Math.abs(value) > CANVAS_HEIGHT / 2)
     ) {
       return;
     }
