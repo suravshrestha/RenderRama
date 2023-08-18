@@ -1,6 +1,6 @@
 import React from "react";
 import Point from "../../geometry/Point";
-import { CANVAS_WIDTH } from "../../../config";
+import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../../../config";
 
 interface Props {
   translationVector: Point;
@@ -24,7 +24,10 @@ const Translation: React.FC<Props> = ({
 
     // Handle point range
     const value = parseInt(event.target.value);
-    if (value > CANVAS_WIDTH || value < 0) {
+    if (
+      (key === "x" && Math.abs(value) > CANVAS_WIDTH) ||
+      (key === "y" && Math.abs(value) > CANVAS_HEIGHT)
+    ) {
       return;
     }
 
