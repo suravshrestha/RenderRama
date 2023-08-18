@@ -42,7 +42,6 @@ const Translation: React.FC<Props> = ({
       <label className="inline-flex items-center m-2">
         <input
           type="checkbox"
-          id="translate-checkbox"
           className="form-checkbox h-5 w-5 text-indigo-600"
           onChange={handleCheckboxChange}
         />
@@ -52,6 +51,7 @@ const Translation: React.FC<Props> = ({
       <div className="ml-9">
         Translation Vector: (
         <input
+          type="number"
           className="border border-slate-700 w-12 h-5 text-center"
           value={translationVector.x}
           onChange={(e) => {
@@ -60,6 +60,7 @@ const Translation: React.FC<Props> = ({
         />
         ,{" "}
         <input
+          type="number"
           className="border border-slate-700 w-12 h-5 text-center"
           value={translationVector.y}
           onChange={(e) => {
