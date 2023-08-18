@@ -55,7 +55,11 @@ const Canvas = ({ points, transformedPoints }: Props) => {
     }
   };
 
-  return <Sketch setup={setup} draw={draw} />;
+  return (
+    <div className="sticky top-20">
+      <Sketch setup={setup} draw={draw} />
+    </div>
+  );
 };
 
 export default Canvas;

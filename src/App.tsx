@@ -17,7 +17,9 @@ const App: React.FC = () => {
 
   return (
     <div className="m-10 mx-28">
-      <h1 className="text-3xl font-bold underline text-center">RenderRama</h1>
+      <h1 className="sticky top-5 text-3xl font-bold underline text-center">
+        RenderRama
+      </h1>
       <div className="grid grid-flow-col gap-4 mt-5">
         <div>
           <PointsInputTable

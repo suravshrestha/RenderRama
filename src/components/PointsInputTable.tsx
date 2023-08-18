@@ -47,7 +47,7 @@ const PointsInputTable = ({
   }
 
   return (
-    <table className="border-collapse border border-slate-500 p-1">
+    <table className="border-collapse border border-slate-500 p-1 sticky top-20">
       <thead className="h-8">
         <tr>
           <th className="border border-slate-700" colSpan={2}>
