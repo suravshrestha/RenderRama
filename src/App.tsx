@@ -1,4 +1,4 @@
-import Point from "./geometry/Point";
+import Point2D from "./geometry/Point2D";
 
 import PointsInputTable from "./components/PointsInputTable";
 import Canvas2D from "./components/Canvas2D";
@@ -14,13 +14,13 @@ const App: React.FC = () => {
     setActiveTab(tab);
   };
 
-  const [points, setPoints] = useState<Point[]>([
+  const [points, setPoints] = useState<Point2D[]>([
     // Initial empty rows
     { x: "", y: "" },
     { x: "", y: "" },
   ]);
 
-  const [transformedPoints, setTransformedPoints] = useState<Point[]>([]);
+  const [transformedPoints, setTransformedPoints] = useState<Point2D[]>([]);
 
   return (
     <div className="m-10 mx-28 justify-center">

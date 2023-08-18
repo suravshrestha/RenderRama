@@ -1,12 +1,12 @@
-import Point from "../geometry/Point";
+import Point2D from "../geometry/Point2D";
 import { CANVAS_WIDTH, CANVAS_HEIGHT } from "../../config";
 
 import React from "react";
 
 interface Props {
-  points: Point[];
-  setTransformedPoints: (points: Point[]) => void;
-  setPoints: (points: Point[]) => void;
+  points: Point2D[];
+  setTransformedPoints: (points: Point2D[]) => void;
+  setPoints: (points: Point2D[]) => void;
 }
 
 const PointsInputTable = ({
@@ -17,7 +17,7 @@ const PointsInputTable = ({
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
     index: number,
-    key: keyof Point // x or y
+    key: keyof Point2D // x or y
   ) => {
     // Handle empty input
     if (event.target.value === "") {

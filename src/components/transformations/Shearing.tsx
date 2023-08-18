@@ -1,11 +1,11 @@
-import Point from "../../geometry/Point";
+import Point2D from "../../geometry/Point2D";
 import { CANVAS_WIDTH, CANVAS_HEIGHT } from "../../../config";
 
 import React from "react";
 
 interface Props {
-  shearingVector: Point;
-  setShearingVector: React.Dispatch<React.SetStateAction<Point>>;
+  shearingVector: Point2D;
+  setShearingVector: React.Dispatch<React.SetStateAction<Point2D>>;
 
   shearDirection: string;
   setShearDirection: React.Dispatch<React.SetStateAction<string>>;
@@ -22,7 +22,7 @@ const Shearing: React.FC<Props> = ({
 }) => {
   const handleShearingVectorInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
-    key: keyof Point // x or y
+    key: keyof Point2D // x or y
   ) => {
     // Handle empty input
     if (event.target.value === "") {

@@ -1,12 +1,12 @@
-import Point from "../geometry/Point";
+import Point2D from "../geometry/Point2D";
 import { CANVAS_WIDTH, CANVAS_HEIGHT } from "../../config";
 
 import Sketch from "react-p5";
 import p5Types from "p5"; // for typechecking and intellisense
 
 interface Props {
-  points: Point[];
-  transformedPoints: Point[];
+  points: Point2D[];
+  transformedPoints: Point2D[];
 }
 
 const Canvas2D = ({ points, transformedPoints }: Props) => {

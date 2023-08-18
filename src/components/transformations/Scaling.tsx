@@ -1,9 +1,9 @@
 import React from "react";
-import Point from "../../geometry/Point";
+import Point2D from "../../geometry/Point2D";
 
 interface Props {
-  scalingVector: Point;
-  setScalingVector: React.Dispatch<React.SetStateAction<Point>>;
+  scalingVector: Point2D;
+  setScalingVector: React.Dispatch<React.SetStateAction<Point2D>>;
   setScaleChecked: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -14,7 +14,7 @@ const Scaling: React.FC<Props> = ({
 }) => {
   const handleScalingVectorInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
-    key: keyof Point // x or y
+    key: keyof Point2D // x or y
   ) => {
     // Handle empty input
     if (event.target.value === "") {

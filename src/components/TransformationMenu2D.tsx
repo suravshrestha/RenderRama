@@ -4,14 +4,14 @@ import Scaling from "./transformations/Scaling";
 import Reflection from "./transformations/Reflection";
 import Shearing from "./transformations/Shearing";
 
-import Point from "../geometry/Point";
+import Point2D from "../geometry/Point2D";
 
 import React, { useState } from "react";
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../../config";
 
 interface Props {
-  points: Point[];
-  setTransformedPoints: React.Dispatch<React.SetStateAction<Point[]>>;
+  points: Point2D[];
+  setTransformedPoints: React.Dispatch<React.SetStateAction<Point2D[]>>;
 }
 
 function TransformationMenu2D({
@@ -19,7 +19,7 @@ function TransformationMenu2D({
   setTransformedPoints,
 }: Props) {
   const [translateChecked, setTranslateChecked] = useState(false);
-  const [translationVector, setTranslationVector] = useState<Point>({
+  const [translationVector, setTranslationVector] = useState<Point2D>({
     x: "",
     y: "",
   });
@@ -29,7 +29,7 @@ function TransformationMenu2D({
   const [rotationDirection, setRotationDirection] = useState("clockwise");
 
   const [scaleChecked, setScaleChecked] = useState(false);
-  const [scalingVector, setScalingVector] = useState<Point>({
+  const [scalingVector, setScalingVector] = useState<Point2D>({
     x: "",
     y: "",
   });
@@ -37,7 +37,7 @@ function TransformationMenu2D({
   const [reflectChecked, setReflectChecked] = useState(false);
   const [reflectionAbout, setReflectionAbout] = useState("x-axis");
 
-  const [shearingVector, setShearingVector] = useState<Point>({
+  const [shearingVector, setShearingVector] = useState<Point2D>({
     x: "",
     y: "",
   });
@@ -46,7 +46,7 @@ function TransformationMenu2D({
 
   const handleTransformClick = () => {
     // Initialize the temporary points array
-    let tempPoints: Point[] = points.filter(
+    let tempPoints: Point2D[] = points.filter(
       (point) => !isNaN(parseInt(point.x)) || !isNaN(parseInt(point.y))
     );
 

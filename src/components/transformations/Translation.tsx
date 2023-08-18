@@ -1,10 +1,10 @@
 import React from "react";
-import Point from "../../geometry/Point";
+import Point2D from "../../geometry/Point2D";
 import { CANVAS_HEIGHT, CANVAS_WIDTH } from "../../../config";
 
 interface Props {
-  translationVector: Point;
-  setTranslationVector: React.Dispatch<React.SetStateAction<Point>>;
+  translationVector: Point2D;
+  setTranslationVector: React.Dispatch<React.SetStateAction<Point2D>>;
   setTranslateChecked: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -15,7 +15,7 @@ const Translation: React.FC<Props> = ({
 }) => {
   const handleTranslationVectorInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
-    key: keyof Point // x or y
+    key: keyof Point2D // x or y
   ) => {
     // Handle empty input
     if (event.target.value === "") {
