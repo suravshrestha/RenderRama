@@ -5,10 +5,15 @@ import React from "react";
 
 interface Props {
   points: Point[];
+  setTransformedPoints: (points: Point[]) => void;
   setPoints: (points: Point[]) => void;
 }
 
-const PointsInputTable = ({ points, setPoints }: Props) => {
+const PointsInputTable = ({
+  points,
+  setPoints,
+  setTransformedPoints,
+}: Props) => {
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement>,
     index: number,
@@ -48,12 +53,14 @@ const PointsInputTable = ({ points, setPoints }: Props) => {
               <button
                 type="button"
                 className="text-red-600 underline"
-                onClick={() =>
+                onClick={() => {
                   setPoints([
                     { x: "", y: "" },
                     { x: "", y: "" },
-                  ])
-                }
+                  ]);
+
+                  setTransformedPoints([]);
+                }}
               >
                 Reset
               </button>
