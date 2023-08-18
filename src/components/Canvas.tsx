@@ -1,4 +1,4 @@
-import Point from "../Point";
+import Point from "../geometry/Point";
 
 import Sketch from "react-p5";
 import p5Types from "p5"; // for typechecking and intellisense

@@ -1,4 +1,4 @@
-import Point from "./Point";
+import Point from "./geometry/Point";
 
 import PointsInputTable from "./components/PointsInputTable";
 import Canvas from "./components/Canvas";
