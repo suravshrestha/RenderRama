@@ -38,7 +38,7 @@ function Transformation3dWithSlider({
   return (
     <div>
       <label className="inline-flex items-center m-2">
-        <span className="ml-2 text-gray-700">{transformation}</span>&nbsp;
+        <span className="ml-2 font-semibold">{transformation}</span>&nbsp;
         <button
           className="px-2 bg-gray-300 hover:bg-gray-400 rounded"
           onClick={() => handleReset()}

@@ -31,7 +31,7 @@ const Reflection: React.FC<Props> = ({
           className="form-checkbox h-5 w-5 text-indigo-600"
           onChange={handleCheckboxChange}
         />
-        <span className="ml-2 text-gray-700">Reflect</span>
+        <span className="ml-2 font-semibold">Reflect</span>
       </label>
       <hr />
       <div className="ml-9">
