@@ -9,6 +9,9 @@ interface Props {
 
   rotationVector3d: Point3D;
   setRotationVector3d: React.Dispatch<React.SetStateAction<Point3D>>;
+
+  scalingVector3d: Point3D;
+  setScalingVector3d: React.Dispatch<React.SetStateAction<Point3D>>;
 }
 
 function TransformationMenu3D({
@@ -17,23 +20,35 @@ function TransformationMenu3D({
 
   rotationVector3d,
   setRotationVector3d,
+
+  scalingVector3d,
+  setScalingVector3d,
 }: Props) {
   return (
-    <div className="grid grid-flow-col">
+    <div className="grid grid-cols-2">
       <Transformation3dWithSlider
         transformation="Translate"
         transformationVector3d={translationVector3d}
         setTransformationVector3d={setTranslationVector3d}
-        min="-100"
-        max="100"
+        defaultValue={0}
+        min={-100}
+        max={100}
       />
 
       <Transformation3dWithSlider
         transformation="Rotate"
         transformationVector3d={rotationVector3d}
         setTransformationVector3d={setRotationVector3d}
-        min="0"
-        max="360"
+        min={0}
+        max={360}
+      />
+
+      <Transformation3dWithSlider
+        transformation="Scale"
+        transformationVector3d={scalingVector3d}
+        setTransformationVector3d={setScalingVector3d}
+        min={1}
+        max={5}
       />
     </div>
   );

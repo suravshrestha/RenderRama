@@ -32,6 +32,12 @@ const App: React.FC = () => {
     z: 0,
   });
 
+  const [scalingVector3d, setScalingVector3d] = useState<Point3D>({
+    x: 1,
+    y: 1,
+    z: 1,
+  });
+
   const handleTabClick = (tab: string): void => {
     setActiveTab(tab);
   };
@@ -51,17 +57,18 @@ const App: React.FC = () => {
             />
           </div>
         )}
-        <div className="col-span-5">
+        <div>
           {activeTab === "3d" ? (
             <Canvas3D
               translationVector3d={translationVector3d}
               rotationVector3d={rotationVector3d}
+              scalingVector3d={scalingVector3d}
             />
           ) : (
             <Canvas2D points={points} transformedPoints={transformedPoints} />
           )}
         </div>
-        <div className="bg-sky-100 col-span-4">
+        <div className="bg-sky-100">
           <div className="mt-5">
             <div className="flex space-x-4 mx-4">
               <button
@@ -103,6 +110,8 @@ const App: React.FC = () => {
                   setTranslationVector3d={setTranslationVector3d}
                   rotationVector3d={rotationVector3d}
                   setRotationVector3d={setRotationVector3d}
+                  scalingVector3d={scalingVector3d}
+                  setScalingVector3d={setScalingVector3d}
                 />
               )}
               {activeTab === "curve-modeling" && (

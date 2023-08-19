@@ -6,14 +6,16 @@ interface Props {
   transformation: string;
   transformationVector3d: Point3D;
   setTransformationVector3d: React.Dispatch<React.SetStateAction<Point3D>>;
-  min: string;
-  max: string;
+  defaultValue?: number;
+  min: number;
+  max: number;
 }
 
 function Transformation3dWithSlider({
   transformation,
   transformationVector3d,
   setTransformationVector3d,
+  defaultValue,
   min,
   max,
 }: Props) {
@@ -28,7 +30,9 @@ function Transformation3dWithSlider({
   };
 
   const handleReset = () => {
-    setTransformationVector3d({ x: 0, y: 0, z: 0 });
+    const resetValue = defaultValue !== undefined ? defaultValue : min;
+
+    setTransformationVector3d({ x: resetValue, y: resetValue, z: resetValue });
   };
 
   return (
