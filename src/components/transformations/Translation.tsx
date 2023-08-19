@@ -55,7 +55,7 @@ const Translation: React.FC<Props> = ({
         Translation Vector: (
         <input
           type="number"
-          className="border border-slate-700 w-12 h-5 text-center"
+          className="border border-slate-700 w-10 h-5 text-center"
           value={translationVector.x}
           onChange={(e) => {
             handleTranslationVectorInputChange(e, "x");
@@ -64,7 +64,7 @@ const Translation: React.FC<Props> = ({
         ,{" "}
         <input
           type="number"
-          className="border border-slate-700 w-12 h-5 text-center"
+          className="border border-slate-700 w-10 h-5 text-center"
           value={translationVector.y}
           onChange={(e) => {
             handleTranslationVectorInputChange(e, "y");

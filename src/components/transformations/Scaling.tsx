@@ -48,7 +48,7 @@ const Scaling: React.FC<Props> = ({
         Scaling Factor: (
         <input
           type="number"
-          className="border border-slate-700 w-12 h-5 text-center"
+          className="border border-slate-700 w-10 h-5 text-center"
           value={scalingVector.x}
           onChange={(e) => {
             handleScalingVectorInputChange(e, "x");
@@ -57,7 +57,7 @@ const Scaling: React.FC<Props> = ({
         ,{" "}
         <input
           type="number"
-          className="border border-slate-700 w-12 h-5 text-center"
+          className="border border-slate-700 w-10 h-5 text-center"
           value={scalingVector.y}
           onChange={(e) => {
             handleScalingVectorInputChange(e, "y");

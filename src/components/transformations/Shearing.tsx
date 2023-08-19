@@ -69,7 +69,7 @@ const Shearing: React.FC<Props> = ({
         Shearing Vector: (
         <input
           type="number"
-          className="border border-slate-700 w-12 h-5 text-center"
+          className="border border-slate-700 w-10 h-5 text-center"
           value={shearingVector.x}
           onChange={(e) => {
             handleShearingVectorInputChange(e, "x");
@@ -78,7 +78,7 @@ const Shearing: React.FC<Props> = ({
         ,{" "}
         <input
           type="number"
-          className="border border-slate-700 w-12 h-5 text-center"
+          className="border border-slate-700 w-10 h-5 text-center"
           value={shearingVector.y}
           onChange={(e) => {
             handleShearingVectorInputChange(e, "y");

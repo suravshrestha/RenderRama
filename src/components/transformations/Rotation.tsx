@@ -56,7 +56,7 @@ const Rotation: React.FC<Props> = ({
         Rotation Angle:{" "}
         <input
           type="number"
-          className="border border-slate-700 w-12 h-5 text-center"
+          className="border border-slate-700 w-10 h-5 text-center"
           value={rotationAngle}
           onChange={handleRotationAngleInputChange}
         />{" "}
