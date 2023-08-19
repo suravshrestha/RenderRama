@@ -49,11 +49,7 @@ const Canvas3D = ({
     p5.box(25);
   };
 
-  return (
-    <div className="sticky top-20">
-      <Sketch setup={setup} draw={draw} />
-    </div>
-  );
+  return <Sketch setup={setup} draw={draw} />;
 };
 
 export default Canvas3D;

@@ -8,6 +8,7 @@ import TransformationMenu2D from "./components/TransformationMenu2D";
 
 import { useState } from "react";
 import TransformationMenu3D from "./components/TransformationMenu3D";
+import CanvasCurveModeling from "./components/CanvasCurveModeling";
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>("2d");
@@ -64,7 +65,9 @@ const App: React.FC = () => {
           </div>
         )}
         <div>
-          {activeTab === "3d" ? (
+          {activeTab === "2d" ? (
+            <Canvas2D points={points} transformedPoints={transformedPoints} />
+          ) : activeTab === "3d" ? (
             <Canvas3D
               translationVector3d={translationVector3d}
               rotationVector3d={rotationVector3d}
@@ -72,7 +75,7 @@ const App: React.FC = () => {
               shearingVector3d={shearingVector3d}
             />
           ) : (
-            <Canvas2D points={points} transformedPoints={transformedPoints} />
+            <CanvasCurveModeling />
           )}
         </div>
         <div className="bg-sky-100">
@@ -124,7 +127,28 @@ const App: React.FC = () => {
                 />
               )}
               {activeTab === "curve-modeling" && (
-                <p>This is the content for Curve modeling.</p>
+                <div className="text-justify">
+                  <span className="font-semibold">Bezier curve</span> is a
+                  widely used mathematical curve that is defined by two or more
+                  control points. It is named after the French engineer Pierre
+                  Bézier, who developed it in the 1960s while working at the
+                  automotive company Renault.
+                  <div className="mt-5">
+                    <span className="font-semibold">Cubic Bezier curve</span> is
+                    defined by four points, P0, P1, P2, and P3, where P0 and P3
+                    are the start and end points of the curve (also known as{" "}
+                    <span className="font-semibold">anchor points</span>), and
+                    P1 and P2 are the{" "}
+                    <span className="font-semibold">control points</span> that
+                    influence the curve's shape.
+                  </div>
+                  <img
+                    className="mt-2 mx-auto"
+                    width="356px"
+                    src="/bezier-curve.png"
+                    alt="Bezier curve with control and anchor points"
+                  />
+                </div>
               )}
             </div>
           </div>
