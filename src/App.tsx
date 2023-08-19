@@ -1,4 +1,5 @@
 import Point2D from "./geometry/Point2D";
+import Point3D from "./geometry/Point3D";
 
 import PointsInputTable from "./components/PointsInputTable";
 import Canvas2D from "./components/Canvas2D";
@@ -6,13 +7,10 @@ import Canvas3D from "./components/Canvas3D";
 import TransformationMenu2D from "./components/TransformationMenu2D";
 
 import { useState } from "react";
+import TransformationMenu3D from "./components/TransformationMenu3D";
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>("2d");
-
-  const handleTabClick = (tab: string): void => {
-    setActiveTab(tab);
-  };
 
   const [points, setPoints] = useState<Point2D[]>([
     // Initial empty rows
@@ -21,6 +19,16 @@ const App: React.FC = () => {
   ]);
 
   const [transformedPoints, setTransformedPoints] = useState<Point2D[]>([]);
+
+  const [translationVector3d, setTranslationVector3d] = useState<Point3D>({
+    x: 0,
+    y: 0,
+    z: 0,
+  });
+
+  const handleTabClick = (tab: string): void => {
+    setActiveTab(tab);
+  };
 
   return (
     <div className="m-10 mx-28 justify-center">
@@ -39,7 +47,7 @@ const App: React.FC = () => {
         )}
         <div className="col-span-5">
           {activeTab === "3d" ? (
-            <Canvas3D />
+            <Canvas3D translationVector3d={translationVector3d} />
           ) : (
             <Canvas2D points={points} transformedPoints={transformedPoints} />
           )}
@@ -80,7 +88,12 @@ const App: React.FC = () => {
                   setTransformedPoints={setTransformedPoints}
                 />
               )}
-              {activeTab === "3d" && <p>This is the content for 3D.</p>}
+              {activeTab === "3d" && (
+                <TransformationMenu3D
+                  translationVector3d={translationVector3d}
+                  setTranslationVector3d={setTranslationVector3d}
+                />
+              )}
               {activeTab === "curve-modeling" && (
                 <p>This is the content for Curve modeling.</p>
               )}

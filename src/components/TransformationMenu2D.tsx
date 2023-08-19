@@ -14,10 +14,7 @@ interface Props {
   setTransformedPoints: React.Dispatch<React.SetStateAction<Point2D[]>>;
 }
 
-function TransformationMenu2D({
-  points,
-  setTransformedPoints,
-}: Props) {
+function TransformationMenu2D({ points, setTransformedPoints }: Props) {
   const [translateChecked, setTranslateChecked] = useState(false);
   const [translationVector, setTranslationVector] = useState<Point2D>({
     x: "",

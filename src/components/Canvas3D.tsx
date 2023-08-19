@@ -1,9 +1,14 @@
 import { CANVAS_WIDTH, CANVAS_HEIGHT } from "../../config";
+import Point3D from "../geometry/Point3D";
 
 import Sketch from "react-p5";
 import p5Types from "p5"; // for typechecking and intellisense
 
-const Canvas3D = () => {
+interface Props {
+  translationVector3d: Point3D;
+}
+
+const Canvas3D = ({ translationVector3d }: Props) => {
   // See annotations in JS for more information
   const setup = (p5: p5Types, canvasParentRef: Element) => {
     p5.createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT, p5.WEBGL).parent(
@@ -16,6 +21,12 @@ const Canvas3D = () => {
   const draw = (p5: p5Types) => {
     p5.background(220);
     p5.orbitControl();
+
+    p5.translate(
+      translationVector3d.x,
+      translationVector3d.y,
+      translationVector3d.z
+    );
     p5.box(25);
   };
 
