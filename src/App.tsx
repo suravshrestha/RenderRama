@@ -78,29 +78,29 @@ const App: React.FC = () => {
             <CanvasCurveModeling />
           )}
         </div>
-        <div className="bg-sky-100">
+        <div className="bg-sky-100 border-solid border-blue-500 border-2 rounded-md ">
           <div className="mt-5">
-            <div className="flex space-x-4 mx-4">
+            <div className="flex space-x-4 mx-4 justify-center">
               <button
-                className={`py-2 px-4 ${
-                  activeTab === "2d" ? "bg-gray-400" : "bg-gray-300"
-                } hover:bg-gray-400 rounded`}
+                className={`py-2 px-4 font-semibold text-white ${
+                  activeTab === "2d" ? "bg-sky-700" : "bg-sky-600"
+                } hover:bg-sky-700 rounded-lg`}
                 onClick={() => handleTabClick("2d")}
               >
                 2D
               </button>
               <button
-                className={`py-2 px-4 ${
-                  activeTab === "3d" ? "bg-gray-400" : "bg-gray-300"
-                } hover:bg-gray-400 rounded`}
+                className={`py-2 px-4 font-semibold text-white ${
+                  activeTab === "3d" ? "bg-sky-700" : "bg-sky-600"
+                } hover:bg-sky-700 rounded-lg`}
                 onClick={() => handleTabClick("3d")}
               >
                 3D
               </button>
               <button
-                className={`py-2 px-4 ${
-                  activeTab === "curve-modeling" ? "bg-gray-400" : "bg-gray-300"
-                } hover:bg-gray-400 rounded`}
+                className={`py-2 px-4 font-semibold text-white ${
+                  activeTab === "curve-modeling" ? "bg-sky-700" : "bg-sky-600"
+                } hover:bg-sky-700 rounded-lg`}
                 onClick={() => handleTabClick("curve-modeling")}
               >
                 Curve modeling
@@ -143,7 +143,7 @@ const App: React.FC = () => {
                     influence the curve's shape.
                   </div>
                   <img
-                    className="mt-2 mx-auto"
+                    className="mt-2 mx-auto border-solid border-2 border-black rounded-md"
                     width="356px"
                     src="/bezier-curve.png"
                     alt="Bezier curve with control and anchor points"
