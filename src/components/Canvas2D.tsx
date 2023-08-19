@@ -56,7 +56,7 @@ const Canvas2D = ({ points, transformedPoints }: Props) => {
   };
 
   return (
-    <div className="sticky top-20">
+    <div className="sticky top-36">
       <Sketch setup={setup} draw={draw} />
     </div>
   );

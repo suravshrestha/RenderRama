@@ -153,7 +153,7 @@ const CanvasCurveModeling = () => {
   }
 
   return (
-    <div className="my-12">
+    <div className="my-6">
       <Sketch
         setup={setup}
         draw={draw}

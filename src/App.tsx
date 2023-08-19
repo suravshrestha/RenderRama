@@ -50,10 +50,14 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="m-10 mx-28 justify-center">
-      <h1 className="sticky top-5 text-3xl font-bold underline text-center">
-        RenderRama
-      </h1>
+    <div className="m-5 mx-28 justify-center">
+      <div className="text-center sticky top-5">
+        <h1 className="text-4xl font-bold text-blue-600">RenderRama</h1>
+        <p className="text-lg text-gray-700">
+          Where Computer Graphics Concepts Come to Life
+        </p>
+        <p className="text-lg text-gray-700">All in One Place!</p>
+      </div>
       <div className="grid grid-flow-col gap-4 mt-5">
         {activeTab === "2d" && (
           <div>
@@ -78,7 +82,7 @@ const App: React.FC = () => {
             <CanvasCurveModeling />
           )}
         </div>
-        <div className="bg-sky-100 border-solid border-blue-500 border-2 rounded-md ">
+        <div className="bg-sky-100 border-solid border-blue-500 border-2 rounded-md">
           <div className="mt-5">
             <div className="flex space-x-4 mx-4 justify-center">
               <button
@@ -127,7 +131,7 @@ const App: React.FC = () => {
                 />
               )}
               {activeTab === "curve-modeling" && (
-                <div className="text-justify">
+                <div className="text-justify leading-6">
                   <span className="font-semibold">Bezier curve</span> is a
                   widely used mathematical curve that is defined by two or more
                   control points. It is named after the French engineer Pierre
