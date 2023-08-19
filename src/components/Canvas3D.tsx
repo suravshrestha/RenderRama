@@ -8,12 +8,14 @@ interface Props {
   translationVector3d: Point3D;
   rotationVector3d: Point3D;
   scalingVector3d: Point3D;
+  shearingVector3d: Point3D;
 }
 
 const Canvas3D = ({
   translationVector3d,
   rotationVector3d,
   scalingVector3d,
+  shearingVector3d,
 }: Props) => {
   // See annotations in JS for more information
   const setup = (p5: p5Types, canvasParentRef: Element) => {
@@ -40,6 +42,9 @@ const Canvas3D = ({
     p5.rotateZ(rotationVector3d.z);
 
     p5.scale(scalingVector3d.x, scalingVector3d.y, scalingVector3d.z);
+
+    p5.shearX(shearingVector3d.x);
+    p5.shearY(shearingVector3d.y);
 
     p5.box(25);
   };

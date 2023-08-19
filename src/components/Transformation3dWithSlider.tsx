@@ -67,17 +67,23 @@ function Transformation3dWithSlider({
           onChange={(event) => handleSliderChange(event, "y")}
         />
       </div>
-      <div>
-        z:{" "}
-        <input
-          type="range"
-          min={min}
-          max={max}
-          value={transformationVector3d.z}
-          onChange={(event) => handleSliderChange(event, "z")}
-        />
-      </div>
-      <hr className="border-t border-gray-300 my-4" />
+      {transformation !== "Shear" && (
+        <div>
+          z:{" "}
+          <input
+            type="range"
+            min={min}
+            max={max}
+            value={transformationVector3d.z}
+            onChange={(event) => handleSliderChange(event, "z")}
+          />
+        </div>
+      )}
+      <hr
+        className={`border-t border-gray-300 my-4 ${
+          transformation === "Shear" && "mt-11"
+        }`}
+      />
     </div>
   );
 }

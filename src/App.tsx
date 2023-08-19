@@ -38,6 +38,12 @@ const App: React.FC = () => {
     z: 1,
   });
 
+  const [shearingVector3d, setShearingVector3d] = useState<Point3D>({
+    x: 0,
+    y: 0,
+    z: 0,
+  });
+
   const handleTabClick = (tab: string): void => {
     setActiveTab(tab);
   };
@@ -63,6 +69,7 @@ const App: React.FC = () => {
               translationVector3d={translationVector3d}
               rotationVector3d={rotationVector3d}
               scalingVector3d={scalingVector3d}
+              shearingVector3d={shearingVector3d}
             />
           ) : (
             <Canvas2D points={points} transformedPoints={transformedPoints} />
@@ -112,6 +119,8 @@ const App: React.FC = () => {
                   setRotationVector3d={setRotationVector3d}
                   scalingVector3d={scalingVector3d}
                   setScalingVector3d={setScalingVector3d}
+                  shearingVector3d={shearingVector3d}
+                  setShearingVector3d={setShearingVector3d}
                 />
               )}
               {activeTab === "curve-modeling" && (

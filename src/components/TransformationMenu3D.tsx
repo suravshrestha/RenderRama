@@ -12,6 +12,9 @@ interface Props {
 
   scalingVector3d: Point3D;
   setScalingVector3d: React.Dispatch<React.SetStateAction<Point3D>>;
+
+  shearingVector3d: Point3D;
+  setShearingVector3d: React.Dispatch<React.SetStateAction<Point3D>>;
 }
 
 function TransformationMenu3D({
@@ -23,6 +26,9 @@ function TransformationMenu3D({
 
   scalingVector3d,
   setScalingVector3d,
+
+  shearingVector3d,
+  setShearingVector3d,
 }: Props) {
   return (
     <div className="grid grid-cols-2">
@@ -49,6 +55,15 @@ function TransformationMenu3D({
         setTransformationVector3d={setScalingVector3d}
         min={1}
         max={5}
+      />
+
+      <Transformation3dWithSlider
+        transformation="Shear"
+        transformationVector3d={shearingVector3d}
+        setTransformationVector3d={setShearingVector3d}
+        defaultValue={0}
+        min={-90}
+        max={90}
       />
     </div>
   );
