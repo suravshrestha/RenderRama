@@ -6,9 +6,10 @@ import p5Types from "p5"; // for typechecking and intellisense
 
 interface Props {
   translationVector3d: Point3D;
+  rotationVector3d: Point3D;
 }
 
-const Canvas3D = ({ translationVector3d }: Props) => {
+const Canvas3D = ({ translationVector3d, rotationVector3d }: Props) => {
   // See annotations in JS for more information
   const setup = (p5: p5Types, canvasParentRef: Element) => {
     p5.createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT, p5.WEBGL).parent(
@@ -27,6 +28,12 @@ const Canvas3D = ({ translationVector3d }: Props) => {
       translationVector3d.y,
       translationVector3d.z
     );
+
+    p5.angleMode(p5.DEGREES);
+    p5.rotateX(rotationVector3d.x);
+    p5.rotateY(rotationVector3d.y);
+    p5.rotateZ(rotationVector3d.z);
+
     p5.box(25);
   };
 
