@@ -177,7 +177,7 @@ function TransformationMenu2D({ points, setTransformedPoints }: Props) {
   };
 
   return (
-    <div>
+    <div className="sticky">
       <Translation
         translationVector={translationVector}
         setTranslationVector={setTranslationVector}
