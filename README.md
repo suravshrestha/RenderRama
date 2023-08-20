@@ -21,6 +21,9 @@ Part: I
 - Curve Modeling
   - Cubic Bezier curve
 
+## Demonstration
+https://github.com/suravshrestha/RenderRama/assets/24486999/314e7301-fad6-4f63-8c2a-8754cedc819b
+
 ## Requirements
 
 - [Node.js](https://nodejs.org/en/) (for `npm`)
