@@ -1,27 +1,57 @@
-# React + TypeScript + Vite
+# RenderRama
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Graphics concept visualizer project for the completion of the course of Computer Graphics [EX 603]**
 
-Currently, two official plugins are available:
+Year: III<br>
+Part: I
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- 2D Transformations
+  - Translation (x and y direction)
+  - Rotation (clockwise and anti-clockwise about origin)
+  - Scaling (both directions)
+  - Reflection (about x, y, y=x, and y=-x axes)
+  - Shearing (x, y, and both directions)
+- 3D Transformations
+  - Translation (x, y, and z direction)
+  - Rotation (about x, y, and z axes)
+  - Scaling (x, y, and both directions)
+  - Shearing (x and y direction)
+- Curve Modeling
+  - Cubic Bezier curve
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Requirements
 
-- Configure the top-level `parserOptions` property like this:
+- [Node.js](https://nodejs.org/en/) (for `npm`)
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+## Usage
+
+1. Clone the repository
+
+```
+git clone https://github.com/suravshrestha/RenderRama.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Navigate to the repository :open_file_folder:
+
+```
+cd RenderRama
+```
+
+3. Install the dependencies
+
+```
+npm install
+```
+
+4. Start the development server
+
+```
+npm run dev
+```
+
+## Authors
+
+1. [Suprim Devkota](https://github.com/SuprimDevkota) (PUL077BCT088)
+1. [Surav Krishna Shrestha](https://github.com/suravshrestha) (PUL077BCT089)
