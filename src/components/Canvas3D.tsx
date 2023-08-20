@@ -23,7 +23,7 @@ const Canvas3D = ({
       canvasParentRef
     );
     p5.camera(0, -120, 120, 0, 100, -100, 0, 1, 0);
-    p5.debugMode(p5.GRID, 100, 6);
+    p5.debugMode(100, 10, 0, 0, 0, 20, -50, -50, -50);
   };
 
   const draw = (p5: p5Types) => {
