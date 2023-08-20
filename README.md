@@ -22,7 +22,11 @@ Part: I
   - Cubic Bezier curve
 
 ## Demonstration
-https://github.com/suravshrestha/RenderRama/assets/24486999/314e7301-fad6-4f63-8c2a-8754cedc819b
+
+
+https://github.com/suravshrestha/RenderRama/assets/24486999/7a95b00f-334a-4a70-b136-5f3343e74b4e
+
+
 
 ## Requirements
 
