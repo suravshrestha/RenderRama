@@ -79,7 +79,8 @@ class Path {
       p5.line(seg[2].x, seg[2].y, seg[3].x, seg[3].y);
     }
 
-    p5.stroke(0, 255, 0);
+    p5.stroke(0, 0, 255);
+    p5.strokeWeight(3)
     p5.noFill();
     p5.beginShape();
     p5.vertex(this.points[0].x, this.points[0].y);
