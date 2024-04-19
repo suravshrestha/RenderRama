@@ -23,10 +23,7 @@ Part: I
 
 ## Demonstration
 
-
-https://github.com/suravshrestha/RenderRama/assets/24486999/7a95b00f-334a-4a70-b136-5f3343e74b4e
-
-
+https://github.com/suravshrestha/RenderRama/assets/24486999/fb483754-6630-419c-a571-ebd46f42e939
 
 ## Requirements
 
