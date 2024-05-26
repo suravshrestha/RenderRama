@@ -1,9 +1,8 @@
 # RenderRama
 
-**Graphics concept visualizer project for the completion of the course of Computer Graphics [EX 603]**
+**RenderRama** is an interactive visualizer designed for exploring 2D and 3D transformations, as well as Bezier curve modeling.
 
-Year: III<br>
-Part: I
+Built with React.js (TypeScript) and powered by [p5.js](https://github.com/processing/p5.js), RenderRama offers an intuitive and dynamic way to understand and experiment with computer graphics concepts.
 
 ## Features
 
@@ -54,8 +53,3 @@ npm install
 ```
 npm run dev
 ```
-
-## Authors
-
-1. [Suprim Devkota](https://github.com/SuprimDevkota) (PUL077BCT088)
-1. [Surav Krishna Shrestha](https://github.com/suravshrestha) (PUL077BCT089)
